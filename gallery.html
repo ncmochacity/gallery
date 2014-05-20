@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href="css/normalize.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		<link href='http://fonts.googleapis.com/css?family=Lato:100,400' rel='stylesheet' type='text/css'>
+
+	</head>
+	<body>
+		<div class="gallery">
+			<div class="item">
+				<img align="left" src="images/penguin.png" />
+				<span class="cap">
+					<h1>Creative Arts By Nicki Chen</h1>
+				</span>
+			</div>
+			<div class="item">
+				<img align="left" src="images/dallas.png" />
+				<span class="cap">
+					<h1>poster project for Dallas Arts</h1>
+				</span>
+			</div>
+		</div>
+		<script src="http://code.jquery.com/jquery-1.11.0.min.js">
+		</script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$(".item").click(function(el){
+					el.stopPropagation();
+					//so it says "event handeler is clicked"
+					//without bubbling up the parent elements like the div
+					$(".item").removeClass("clicked");
+					$(this).toggleClass("clicked");
+					$("body").addClass("showing-item");
+				})
+				$(".item").click(function(){
+					$(this).hide().fadeIn(2000);
+				})
+				$("html").click(function(){
+					$(".item").removeClass("clicked");
+					$("body").removeClass("showing-item");
+				});
+			});
+		</script>
+	</body>
+</html>
